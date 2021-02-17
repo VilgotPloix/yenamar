@@ -1,0 +1,15 @@
+<header>
+  
+  <%if user_signed_in? %>
+    <%= link_to 'déconnection', destroy_user_session_path, method: :delete, class:"liens" %>
+        <%= link_to 'home', root_path, class:"liens" %>
+    <%= link_to 'donner une localisation', new_event_path, class:"liens" %>
+  <% else %>
+    <%= link_to 'connection', new_user_session_path, class: "liens" %>
+  <%end%>
+
+</header>
+
+<div class="eventShow">
+	<div class="carte"></div>
+</div>

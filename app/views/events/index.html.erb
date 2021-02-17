@@ -1,0 +1,23 @@
+<header>
+  
+  <%if user_signed_in? %>
+    <%= link_to 'déconnection', destroy_user_session_path, method: :delete, class:"liens" %>
+        <%= link_to 'home', root_path, class:"liens" %>
+    <%= link_to 'donner une localisation', new_event_path, class:"liens" %>
+  <% else %>
+    <%= link_to 'connection', new_user_session_path, class: "liens" %>
+  <%end%>
+
+</header>
+
+<div class="eventIndex">
+	<% @event.each_with_index do |event, index| %>
+		<div class="cards">
+			<div class="top">
+			<a href="event_path"><%= event.title %></a>
+			
+			</div>
+			<p class ="liens"><%= event.desc %></p>
+		</div>
+	<%end%>
+</div>
